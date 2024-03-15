@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import AuthForm from './AuthForm';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+const App = () => {
+  const [isSignUpSuccess, setIsSignUpSuccess] = useState(false);
+
+  const handleSignUpSuccess = () => {
+    setIsSignUpSuccess(true);
+    setTimeout(() => {
+      setIsSignUpSuccess(false);
+    }, 3000); // Reset the success message after 3 seconds
+  };
+
+  return (
+    <React.StrictMode>
+      <AuthForm onSignUpSuccess={handleSignUpSuccess} />
+      {isSignUpSuccess && <div className="success-message">Signup Successfully</div>}
+    </React.StrictMode>
+  );
+};
+
+root.render(<App />);
+
 reportWebVitals();
