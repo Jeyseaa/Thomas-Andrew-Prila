@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { app } from './firebase';
 import { getDatabase, ref, set } from 'firebase/database';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
-import './App.css';
+import './Apps.css';
 
 const AuthForm = ({ onSignUpSuccess }) => {
   const [isSignUpMode, setIsSignUpMode] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMode = () => { setIsSignUpMode(!isSignUpMode); };
 
@@ -38,6 +41,7 @@ const AuthForm = ({ onSignUpSuccess }) => {
         await signInWithEmailAndPassword(auth, email, password);
         setEmail('');
         setPassword('');
+        setIsLoggedIn(true);
         window.alert('Login successful!');
       }
     } catch (error) {
@@ -45,6 +49,10 @@ const AuthForm = ({ onSignUpSuccess }) => {
       window.alert('Username or Password is incorrect! Please try again!');
     }
   };
+
+  if (isLoggedIn) {
+    navigate('/dashboard');
+  }
 
   return (
     <div className={`container ${isSignUpMode ? 'sign-up-mode' : ''}`}>
