@@ -134,9 +134,10 @@ form.sign-in-form {
   border-color: #F86F03;
 }
 
-.btn {
-  width: 150px;
-  background-color: #91877e;
+.btn.solid {
+  width: 200px; /* Adjust the width as needed */
+  background-color: #91877e; /* Set the background color */
+  /* Additional styles */
   border: none;
   outline: none;
   height: 49px;
@@ -149,9 +150,10 @@ form.sign-in-form {
   transition: 0.5s;
 }
 
-.btn:hover {
-  background-color: #f98c39;
+.btn.solid:hover {
+  background-color: #91877e; /* Change the background color on hover if needed */
 }
+
 
 .panels-container {
   position: absolute;
@@ -178,10 +180,15 @@ form.sign-in-form {
 }
 
 .image {
-  width: 100%;
+  width: 100%; /* Adjust the width as needed */
+  max-width: 500px; /* Set a maximum width for responsiveness */
+  height: auto; /* Maintain aspect ratio */
   transition: transform 1.1s ease-in-out;
   transition-delay: 0.4s;
+  display: block; /* Ensure the image behaves as a block element */
+  margin: 0 auto; /* Center the image horizontally */
 }
+
 
 .panel {
   display: flex;

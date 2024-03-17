@@ -6,6 +6,10 @@ import { getDatabase, ref, set } from 'firebase/database';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import './Apps.css';
 
+
+
+
+
 const AuthForm = ({ onSignUpSuccess }) => {
   const [isSignUpMode, setIsSignUpMode] = useState(false);
   const [email, setEmail] = useState('');
@@ -99,7 +103,7 @@ const AuthForm = ({ onSignUpSuccess }) => {
               <i className="fas fa-lock"></i>
               <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
-            <input type="submit" className="btn" value="Sign up" />
+            <input type="submit" className="btn solid" value="Sign up" />
             <p className="social-text">Or Sign up with social platforms</p>
             <div className="social-media">
               <button className="social-icon">
