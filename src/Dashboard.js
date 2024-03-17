@@ -3,10 +3,10 @@ import React from 'react';
 import './Dashboard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { Link } from 'react-router-dom'; 
 
 const Dashboard = () => {
-  // Adjust the size of the icons by setting the fontSize property
-  const iconSize = "50px"; // Adjust this value as needed
+  const iconSize = "50px";
 
   return (
     <div>
@@ -17,19 +17,19 @@ const Dashboard = () => {
             <li><a href="#">Accommodations</a></li>
             <li><a href="#">Flights</a></li>
             <li><a href="#">Car Rentals</a></li>
-            <li><a href="#">About Us</a></li>
+           
+            <li><Link to="/about-us">About Us</Link></li>
           </ul>
         </nav>
         <div className="menu-toggle">
-  <i className="fa fa-bars" style={{ fontSize: iconSize }}></i>
-</div>
-<div className="socialmedia">
-  <a href="#" style={{ marginRight: '10px' }}><FontAwesomeIcon icon={faFacebook} style={{ fontSize: iconSize }} /></a>
-  <a href="#" style={{ marginRight: '10px' }}><FontAwesomeIcon icon={faTwitter} style={{ fontSize: iconSize }} /></a>
-  <a href="#" style={{ marginRight: '10px' }}><FontAwesomeIcon icon={faLinkedin} style={{ fontSize: iconSize }} /></a>
-  <a href="#"><FontAwesomeIcon icon={faInstagram} style={{ fontSize: iconSize }} /></a>
-</div>
-
+          <i className="fa fa-bars" style={{ fontSize: iconSize }}></i>
+        </div>
+        <div className="socialmedia">
+          <a href="#" style={{ marginRight: '10px' }}><FontAwesomeIcon icon={faFacebook} style={{ fontSize: iconSize }} /></a>
+          <a href="#" style={{ marginRight: '10px' }}><FontAwesomeIcon icon={faTwitter} style={{ fontSize: iconSize }} /></a>
+          <a href="#" style={{ marginRight: '10px' }}><FontAwesomeIcon icon={faLinkedin} style={{ fontSize: iconSize }} /></a>
+          <a href="#"><FontAwesomeIcon icon={faInstagram} style={{ fontSize: iconSize }} /></a>
+        </div>
       </header>
 
 
